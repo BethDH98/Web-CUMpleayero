@@ -283,16 +283,27 @@ function onYouTubeIframeAPIReady(){
 }
 /* ---------- MURO DE MENSAJES ---------- */
 function guardarMensaje(){
+  if(e) e.preventDefault(); // Evita que la pag se refresque en movil.
+  const nameInput = document.getElementById('guestName');
+  const msgInput = document.getElementById('guestMsg');
+
   const nombre = document.getElementById('guestName').value.trim() || 'Invitado/a Anónimo/a';
   const mensaje = document.getElementById('guestMsg').value.trim();
   
   if(!mensaje) return;
 
   const msgs = JSON.parse(localStorage.getItem('mensajes_cumple') || '[]');
-  msgs.unshift({ nombre, mensaje, fecha: new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) });
+  msgs.unshift({
+     nombre:nombre,
+     mensaje:mensaje,
+     fecha: new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) 
+    });
   localStorage.setItem('mensajes_cumple', JSON.stringify(msgs));
+    if(msgInput) msgInput.value = '';
+  if(nameInput) nameInput.value = '';
 
-  document.getElementById('guestMsg').value = '';
+  // Quitar el foco del teclado en celulares al enviar
+  if(document.activeElement) document.activeElement.blur();
   renderMensajes();
 }
 
