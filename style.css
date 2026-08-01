@@ -1,5 +1,5 @@
 /* ============================================================
-   CONFIGURACIÓN RÁPIDA — edita solo esta zona para personalizar
+   CONFIGURACIÓN RÁPIDA 
    ============================================================ */
 :root{
   --bg-deep:#150a28;
@@ -94,14 +94,16 @@ main{
 
 /* ---------- Sidebar izquierdo: perfil ---------- */
 .avatar-wrap{display:flex; justify-content:center; margin-bottom:10px;}
+
 .avatar{
-  width:120px; height:120px; border-radius:50%;
-  border:3px solid var(--accent-lime);
-  background:
-    url('Assets/Fotos/Photo-1.jpg') center/cover no-repeat,
-    conic-gradient(from 90deg, #ff5fa2, #baff29, #7fd6ff, #ff5fa2);
-  display:flex; align-items:center; justify-content:center;
-  box-shadow:0 0 25px rgba(186,255,41,0.35);
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 3px solid var(--accent-lime);
+  background-image: url('Assets/Fotos/Photo-1.jpg');
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 0 25px rgba(186,255,41,0.35);
 }
 .avatar-inner{
   width:100px; height:100px; border-radius:50%; background:#12061f;
@@ -130,20 +132,46 @@ main{
 .tag-card .icon{font-size:20px; display:block; margin-bottom:4px;}
 
 /* ---------- Centro: carrusel + dedicatoria ---------- */
-.carousel{
-  position:relative; border-radius:14px; overflow:hidden;
-  background:
-    repeating-linear-gradient(45deg, #241338, #241338 2px, #2a1740 2px, #2a1740 4px);
-  min-height:340px; display:flex; align-items:center; justify-content:center;
+.carousel {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  background: repeating-linear-gradient(45deg, #241338, #241338 2px, #2a1740 2px, #2a1740 4px);
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
+  
+
 .desk{
-  position:relative; width:100%; height:340px;
+  position: relative;
+  width: 100%;
+  height: 280px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .polaroid{
-  position:absolute; background:#f4f1e6; padding:10px 10px 28px; border-radius:3px;
-  box-shadow:0 6px 14px rgba(0,0,0,0.45);
-  width:100px; transition:transform .25s ease;
+  position: absolute;
+  background: #f4f1e6;
+  padding: 8px 8px 24px;
+  border-radius: 4px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  width: 110px; /* Tamaño ajustado a pantallas móviles */
+  transition: transform .25s ease;
 }
+
+.polaroid .swatch {
+  width: 100%;
+  height: 90px;
+  background-size: cover !important;
+  background-position: center !important;
+  border-radius: 2px;
+  display: block;
+}
+
 .polaroid img, .polaroid .swatch{
   width:100%; height:78px; object-fit:cover; border-radius:2px; display:block;
 }
@@ -224,3 +252,4 @@ main{
 footer{
   text-align:center; color:var(--text-dim); font-size:11px; padding:20px; font-family:'Space Mono',monospace;
 }
+
