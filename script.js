@@ -282,7 +282,7 @@ function onYouTubeIframeAPIReady(){
   });
 }
 /* ---------- MURO DE MENSAJES ---------- */
-function guardarMensaje(){
+function guardarMensaje(e){
   if(e) e.preventDefault(); // Evita que la pag se refresque en movil.
   const nameInput = document.getElementById('guestName');
   const msgInput = document.getElementById('guestMsg');
