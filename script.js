@@ -8,14 +8,14 @@ const CONFIG = {
   siteURL: window.location.href,     // Toma automáticamente la URL del hosting actual
 
   fotos: [
-    {cap:"Fiesta", img:"Assets/Fotos/fiesta1.jpg"},
-    {cap:"Roadtrip", img:"Assets/Fotos/Rodada1.png"},
-    {cap:"Cumple pasado", img:"Assets/Fotos/cumple1.jpg"},
-    {cap:"Con amigos", img:"Assets/Fotos/amigos.png"},
-    {cap:"EDC 2026", img:"Assets/Fotos/edc.jpg"},
-    {cap:"Trabajo", img:"Assets/Fotos/trabalo.jpeg"},
-    {cap:"🐣💚🐺", img:"Assets/Fotos/anillo.jpg"},
-    {cap:"Perrhijo", img:"Assets/Fotos/scooby2.jpg"}
+    {cap:"Fiesta", img:"./Assets/Fotos/fiesta1.jpg"},
+    {cap:"Roadtrip", img:"./Assets/Fotos/Rodada1.png"},
+    {cap:"Cumple pasado", img:"./Assets/Fotos/cumple1.jpg"},
+    {cap:"Con amigos", img:"./Assets/Fotos/amigos.png"},
+    {cap:"EDC 2026", img:"./Assets/Fotos/edc.jpg"},
+    {cap:"Trabajo", img:"./Assets/Fotos/trabalo.jpeg"},
+    {cap:"🐣💚🐺", img:"./Assets/Fotos/anillo.jpg"},
+    {cap:"Perrhijo", img:"./Assets/Fotos/scooby2.jpg"}
   ],
 
   tracks: [
