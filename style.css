@@ -253,3 +253,9 @@ footer{
   text-align:center; color:var(--text-dim); font-size:11px; padding:20px; font-family:'Space Mono',monospace;
 }
 
+.msg-box button {
+  touch-action: manipulation;
+  position: relative;
+  z-index: 5;
+}
+
