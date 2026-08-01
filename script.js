@@ -55,33 +55,44 @@ function renderDesk(){
   const desk = document.getElementById('desk');
   if(!desk) return;
   desk.innerHTML = '';
-  const visible = Math.min(5, CONFIG.fotos.length);
-  for(let i=0; i<visible; i++){
+
+  // Detectar si estamos en celular para ajustar el número de fotos visibles y la separación
+  const esMovil = window.innerWidth < 600;
+  const visible = esMovil ? 3 : 5; 
+  const spacing = esMovil ? 60 : 100; 
+
+  for(let i = 0; i < visible; i++){
     const idx = (carouselIndex + i) % CONFIG.fotos.length;
     const foto = CONFIG.fotos[idx];
     const div = document.createElement('div');
     div.className = 'polaroid';
-    const rot = (i % 2 === 0 ? -1 : 1) * (6 + i*2);
-    const left = 20 + i*110;
-    const top = (i % 3) * 18;
-    div.style.left = left+'px';
-    div.style.top = top+'px';
+    
+    const rot = (i % 2 === 0 ? -1 : 1) * (4 + i * 2);
+    // Centramos el abanico de fotos dinámicamente
+    const centerOffset = ((visible - 1) * spacing) / 2;
+    const leftPos = `calc(50% - 55px + ${i * spacing - centerOffset}px)`;
+    const topPos = 20 + (i % 2) * 15;
+
+    div.style.left = leftPos;
+    div.style.top = topPos + 'px';
     div.style.transform = `rotate(${rot}deg)`;
     div.style.zIndex = visible - i;
 
+    // Aseguramos la ruta de la imagen
     const estiloFondo = foto.img 
-      ? `background-image: url('${foto.img}'); background-size: cover; background-position: center;` 
+      ? `background-image: url('${foto.img}');` 
       : `background: ${foto.color || '#333'};`;
 
     div.innerHTML = `<div class="swatch" style="${estiloFondo}"></div><div class="cap">${foto.cap}</div>`;
     desk.appendChild(div);
   }
+
   const dots = document.getElementById('dots');
   if(dots){
     dots.innerHTML = '';
-    CONFIG.fotos.forEach((_,i)=>{
+    CONFIG.fotos.forEach((_, i) => {
       const d = document.createElement('span');
-      if(i === carouselIndex % CONFIG.fotos.length) d.className='active';
+      if(i === carouselIndex % CONFIG.fotos.length) d.className = 'active';
       dots.appendChild(d);
     });
   }
@@ -93,7 +104,7 @@ function moveCarousel(dir){
 }
 
 /* ---------- QR DE SUBIDA ---------- */
-/* ---------- AUTO-ACCESO ---------- */
+/* ---------- AUTO-ACCESO...No se si funcione(?) ---------- */
 document.addEventListener("DOMContentLoaded", () => {
   renderDesk();
   const qrElem = document.getElementById("qrbox");
