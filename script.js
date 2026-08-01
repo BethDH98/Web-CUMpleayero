@@ -281,5 +281,35 @@ function onYouTubeIframeAPIReady(){
     }
   });
 }
+/* ---------- MURO DE MENSAJES ---------- */
+function guardarMensaje(){
+  const nombre = document.getElementById('guestName').value.trim() || 'Invitado/a Anónimo/a';
+  const mensaje = document.getElementById('guestMsg').value.trim();
+  
+  if(!mensaje) return;
+
+  const msgs = JSON.parse(localStorage.getItem('mensajes_cumple') || '[]');
+  msgs.unshift({ nombre, mensaje, fecha: new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) });
+  localStorage.setItem('mensajes_cumple', JSON.stringify(msgs));
+
+  document.getElementById('guestMsg').value = '';
+  renderMensajes();
+}
+
+function renderMensajes(){
+  const contenedor = document.getElementById('mensajesLista');
+  if(!contenedor) return;
+  const msgs = JSON.parse(localStorage.getItem('mensajes_cumple') || '[]');
+  
+  contenedor.innerHTML = msgs.map(m => `
+    <div style="background:var(--bg-panel-soft); border:1px solid #3a2568; border-radius:8px; padding:8px 10px; text-align:left;">
+      <div style="font-size:11px; color:var(--accent-lime); font-weight:bold;">${m.nombre} <span style="color:var(--text-dim); font-weight:normal; font-size:9px;">· ${m.fecha}</span></div>
+      <div style="font-size:12px; color:var(--text-light); margin-top:2px;">"${m.mensaje}"</div>
+    </div>
+  `).join('');
+}
+
+// Cargar mensajes existentes al iniciar
+document.addEventListener("DOMContentLoaded", renderMensajes);
 
 loadTrack();
