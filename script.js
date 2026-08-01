@@ -4,7 +4,7 @@
 const CONFIG = {
   clave: "TECHNO2026",               // Clave de acceso para la fiesta
   // aquí URL que dio Google Apps Script al implementar como Web App:
-  driveScriptURL: "https://script.google.com/macros/s/AKfycbxLkzMMTHjC2G0P8mEOoDB-eARnhVGqAVkZvrs3EwV-1VG0i31ftwU-d7ZJG1GvJUPX/exec", 
+  driveScriptURL: "https://script.google.com/macros/s/AKfycbx1VvBXTU2-BTjYd2ZbxhBYDdRmME8DCYN0s1VWk2CDed3ZrSL49JEZ-7V3M-13Wr0h/exec", 
   siteURL: window.location.href,     // Toma automáticamente la URL del hosting actual
 
   fotos: [
