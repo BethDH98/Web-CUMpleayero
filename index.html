@@ -37,7 +37,12 @@
       </div>
       <div class="handle">@pablo.ss</div>
       <div class="substats"> · techno lover · Level 28s</div>
-      <div class="msg-box">
+      <form class="msg-box" onsubmit="guardarMensaje(event)">
+        <input id="guestName" type="text" placeholder="Tu nombre..." class="search" style="margin-bottom:8px;">
+        <textarea id="guestMsg" placeholder="Déjale un mensaje bonito a Pablo... 💬" class="search" rows="2" style="resize:none;" required></textarea>
+        <button type="submit" class="btn-upload" style="margin-top:8px; font-size:12px; padding:10px; cursor:pointer;">💌 ENVIAR MENSAJE</button>
+        <div id="mensajesLista" style="margin-top:12px; display:flex; flex-direction:column; gap:8px;"></div>
+      </form>
       <input id="guestName" type="text" placeholder="Tu nombre..." class="search" style="margin-bottom:8px;">
         <textarea id="guestMsg" placeholder="Déjale un mensaje bonito a Pablo... 💬" class="search" rows="2" style="resize:none;"></textarea>
         <button onclick="guardarMensaje()" class="btn-upload" style="margin-top:8px; font-size:12px; padding:8px;">💌 ENVIAR MENSAJE</button>
