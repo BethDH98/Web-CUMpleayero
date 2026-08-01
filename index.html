@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cumple</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+
+<!-- ======= PANTALLA DE ACCESO ======= -->
+<div id="gate">
+  <div class="pixel" style="font-size:20px; color:var(--accent-lime);">2K</div>
+  <h1 class="pixel">ACCESO PRIVADO</h1>
+  <p>Esta página es solo para invitados. Escribe la clave que viene junto al código QR impreso.</p>
+  <input id="claveInput" type="text" placeholder="CLAVE" autocomplete="off">
+  <div class="err" id="claveErr"></div>
+  <button onclick="verificarClave()">ENTRAR</button>
+</div>
+
+<!-- ======= SITIO ======= -->
+<div id="site" style="display:none;">
+  <div class="topbar">
+    <span class="dot dot-1"></span><span class="dot dot-2"></span><span class="dot dot-3"></span>
+    <span class="url">🔒 <b>https://cumple-Pablo.hechoenmexico</b></span>
+    <span class="tag pixel">BIENVENIDOS</span>
+  </div>
+
+  <main>
+    <!-- ===== IZQUIERDA: PERFIL ===== -->
+    <div class="panel glow">
+      <div class="avatar-wrap">
+        <div class="avatar" src="Assets/Fotos/Photo-1.jpg"></div>
+      </div>
+      <div class="handle">@pablo.ss</div>
+      <div class="substats"> · techno lover · Level 28s</div>
+      <input class="search" placeholder="Buscar intereses...">
+
+      <div class="panel" style="margin-top:16px; background:var(--bg-panel-soft); border:none;">
+        <h2>SOBRE ÉL <span>★</span></h2>
+        <div class="bio">
+          <p>Apasionado por la <b>música electrónica</b>, el ritmo del <b>Hardstyle</b> la buena compañia, creatividad y momentos inolvidables.</p>
+        </div>
+      </div>
+
+      <div class="panel" style="margin-top:16px; background:var(--bg-panel-soft); border:none;">
+        <h2>SUS GUSTOS <span>♡</span></h2>
+        <div class="tags-grid">
+          <div class="tag-card"><span class="icon">🎧</span>Hardstyle</div>
+          <div class="tag-card"><span class="icon">🛣️</span>Rodar</div>
+          <div class="tag-card"><span class="icon">🎮</span>Gaming</div>
+          <div class="tag-card"><span class="icon">🐶</span>Perritos</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== CENTRO: CARRUSEL + DEDICATORIA ===== -->
+    <div>
+      <div class="panel glow">
+        <h2>CARRUSEL DE FOTOS <span>🖼️</span></h2>
+        <div class="carousel">
+          <div class="desk" id="desk"></div>
+          <div class="carousel-nav prev" onclick="moveCarousel(-1)">‹</div>
+          <div class="carousel-nav next" onclick="moveCarousel(1)">›</div>
+          <div class="carousel-dots" id="dots"></div>
+        </div>
+      </div>
+
+      <div class="panel dedicatoria">
+        <h2>DEDICATORIA <span>💌</span></h2>
+        <p>Para el amor de mi vida: Feliz cumpleaños. Gracias por cada sonrisa, por tu pasión contagiosa por la música y por ser la mejor compañía en este viaje. ¡Que este nuevo año venga cargado de pura energía positiva, ritmo y momentos inolvidables juntos! Te amo infinitamente. 💗</p>
+      </div>
+    </div>
+
+    <!-- ===== DERECHA: SUBIDA + PLAYER ===== -->
+    <div>
+      <div class="panel glow">
+        <h2>SUBIDA INVITADOS <span>📷</span></h2>
+        <p class="upload-desc">Escanea o haz clic para subir tus fotos y videos a Google Drive</p>
+        <div class="qr-box" id="qrbox"></div>
+        <input type="file" id="fileInput" accept="image/*,video/*" multiple>
+        <button class="btn-upload" id="btnUpload" onclick="document.getElementById('fileInput').click()">📤 SUBIR FOTO / VIDEO</button>
+        <div class="upload-status" id="uploadStatus"></div>
+        <div class="thumbs" id="thumbs"></div>
+      </div>
+
+      <div class="panel glow player">
+        <h2>REPRODUCTOR <span>♪</span></h2>
+        <div class="track-now">
+          <div class="ic">▶</div>
+          <div>
+            <div class="title" id="nowTitle">Hardstyle Anthem 2026</div>
+            <div class="sub" id="nowSub">Bass Frequency · Local Track</div>
+          </div>
+        </div>
+        <div class="progress" id="progressBar"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="controls">
+          <button onclick="prevTrack()">⏮</button>
+          <button class="play" id="playBtn" onclick="togglePlay()">▶</button>
+          <button onclick="nextTrack()">⏭</button>
+        </div>
+        <ul class="playlist" id="playlist"></ul>
+        <audio id="ytPlayer" style="position:absolute; width: 1px; height:1px; overflow:hidden; opacity:0;"></audio>
+      </div>
+    </div>
+  </main>
+
+  <footer>hecho con cariño para ti mi amor <3 </footer>
+</div>
+<script src="https://www.youtube.com/iframe_api"></script>
+<script src="script.js"></script>
+</body>
+</html>
