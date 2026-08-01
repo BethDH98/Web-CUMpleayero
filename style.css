@@ -100,7 +100,7 @@ main{
   height: 120px;
   border-radius: 50%;
   border: 3px solid var(--accent-lime);
-  background-image: url('Assets/Fotos/Photo-1.jpg');
+  background-image: url('./Assets/Fotos/Photo-1.jpg');
   background-size: cover;
   background-position: center;
   box-shadow: 0 0 25px rgba(186,255,41,0.35);
