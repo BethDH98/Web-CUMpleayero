@@ -8,14 +8,14 @@ const CONFIG = {
   siteURL: window.location.href,     // Toma automáticamente la URL del hosting actual
 
   fotos: [
-    {cap:"Fiesta", img:"./Assets/Fotos/fiesta1.jpg"},
-    {cap:"Roadtrip", img:"./Assets/Fotos/Rodada1.png"},
-    {cap:"Cumple pasado", img:"./Assets/Fotos/cumple1.jpg"},
-    {cap:"Con amigos", img:"./Assets/Fotos/amigos.png"},
-    {cap:"EDC 2026", img:"./Assets/Fotos/edc.jpg"},
-    {cap:"Trabajo", img:"./Assets/Fotos/trabalo.jpeg"},
-    {cap:"🐣💚🐺", img:"./Assets/Fotos/anillo.jpg"},
-    {cap:"Perrhijo", img:"./Assets/Fotos/scooby2.jpg"}
+    {cap:"Fiesta", img:"Assets/Fotos/fiesta1.jpg"},
+    {cap:"Roadtrip", img:"Assets/Fotos/Rodada1.png"},
+    {cap:"Cumple pasado", img:"Assets/Fotos/cumple1.jpg"},
+    {cap:"Con amigos", img:"Assets/Fotos/amigos.png"},
+    {cap:"EDC 2026", img:"Assets/Fotos/edc.jpg"},
+    {cap:"Trabajo", img:"Assets/Fotos/trabalo.jpeg"},
+    {cap:"🐣💚🐺", img:"Assets/Fotos/anillo.jpg"},
+    {cap:"Perrhijo", img:"Assets/Fotos/scooby2.jpg"}
   ],
 
   tracks: [
@@ -59,7 +59,7 @@ function renderDesk(){
   // Detectar si estamos en celular para ajustar el número de fotos visibles y la separación
   const esMovil = window.innerWidth < 600;
   const visible = esMovil ? 3 : 5; 
-  const spacing = esMovil ? 60 : 100; 
+  const spacing = esMovil ? 60 : 100; // Menos distancia entre tarjetas en cel
 
   for(let i = 0; i < visible; i++){
     const idx = (carouselIndex + i) % CONFIG.fotos.length;
@@ -104,7 +104,7 @@ function moveCarousel(dir){
 }
 
 /* ---------- QR DE SUBIDA ---------- */
-/* ---------- AUTO-ACCESO...No se si funcione(?) ---------- */
+/* ---------- AUTO-ACCESO ---------- */
 document.addEventListener("DOMContentLoaded", () => {
   renderDesk();
   const qrElem = document.getElementById("qrbox");
@@ -280,6 +280,8 @@ function onYouTubeIframeAPIReady(){
       }
     }
   });
+
+  
 }
 /* ---------- MURO DE MENSAJES ---------- */
 function guardarMensaje(e){
