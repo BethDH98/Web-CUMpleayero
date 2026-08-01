@@ -25,7 +25,7 @@
 <div id="site" style="display:none;">
   <div class="topbar">
     <span class="dot dot-1"></span><span class="dot dot-2"></span><span class="dot dot-3"></span>
-    <span class="url">🔒 <b>https://cumple-Pablo.hechoenmexico</b></span>
+    <span class="url">🔒 <b>https://cump-Pablo.hecho-en-mexico</b></span>
     <span class="tag pixel">BIENVENIDOS</span>
   </div>
 
@@ -37,7 +37,12 @@
       </div>
       <div class="handle">@pablo.ss</div>
       <div class="substats"> · techno lover · Level 28s</div>
-      <input class="search" placeholder="Buscar intereses...">
+      <div class="msg-box">
+      <input id="guestName" type="text" placeholder="Tu nombre..." class="search" style="margin-bottom:8px;">
+        <textarea id="guestMsg" placeholder="Déjale un mensaje bonito a Pablo... 💬" class="search" rows="2" style="resize:none;"></textarea>
+        <button onclick="guardarMensaje()" class="btn-upload" style="margin-top:8px; font-size:12px; padding:8px;">💌 ENVIAR MENSAJE</button>
+        <div id="mensajesLista" style="margin-top:12px; display:flex; flex-direction:column; gap:8px;"></div>
+      </div>
 
       <div class="panel" style="margin-top:16px; background:var(--bg-panel-soft); border:none;">
         <h2>SOBRE ÉL <span>★</span></h2>
